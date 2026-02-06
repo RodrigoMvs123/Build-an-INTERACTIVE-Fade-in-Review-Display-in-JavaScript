@@ -1,18 +1,12 @@
 # Build-an-INTERACTIVE-Fade-in-Review-Display-in-JavaScript
 
-##
-https://www.youtube.com/watch?v=SQdtEcQ0ll4
+- https://www.youtube.com/watch?v=SQdtEcQ0ll4
+- https://raw.githubusercontent.com/RodrigoMvs123/Build-an-INTERACTIVE-Fade-in-Review-Display-in-JavaScript/main/README.md
+- https://github.com/RodrigoMvs123/Build-an-INTERACTIVE-Fade-in-Review-Display-in-JavaScript/blame/main/README.md
 
-https://raw.githubusercontent.com/RodrigoMvs123/Build-an-INTERACTIVE-Fade-in-Review-Display-in-JavaScript/main/README.md
-
-##
-
-https://github.com/RodrigoMvs123/Build-an-INTERACTIVE-Fade-in-Review-Display-in-JavaScript/blame/main/README.md
-
-##
-App.js 
+**App.js**
+```javascript
 const reviewContainer = document.getElementById('review-container')
-
 // keep the images landscape images 
 const reviews = [
     {
@@ -22,50 +16,38 @@ const reviews = [
         name: "Indyah Almay"
     }
 ]
-
 function populateDisplay() {
     reviews.forEach(review => {
        const cardElement = document.createElement('div')
        cardElement.classList.add('card')
-
        cardElement.addEventListener('mouseover', showCard)
        cardElement.addEventListener('mouseleave', blurCard)
-
        const imageContainer = document.createElement('div')
        imageContainer.classList.add('image-container')
        const imageElement = document.createElement('img')
        imageElement.setAttribute('src', review.img)
        imageElement.setAttribute('alt', review.alt)
        imageContainer.append(imageElement)
-
        const paragraphElement = document.createElement('p')
        paragraphElement.textContent = reviews.text 
        const nameContainer = document.createElement('div')
        nameContainer.classList.add('name-container')
        nameContainer.textContent = review.name
-
-
-
        cardElement.append(imageContainer, paragraphElement, nameContainer)
-
        reviewContainer.append(cardElement)
     })
 }
-
 populateDisplay()
-
 function showCard () {
     this.classList.add('active')
 }
-
-
 function blurCard () {
     this.classList.remove('active')
 }
+```
 
-##
-
-Index.html
+**Index.html**
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,26 +59,21 @@ Index.html
 </head>
 <body>
     <div id="review-container"></div>
-
     <script src="App.js"></script>
 </body>
 </html>
+```
 
-##
-
-Styles.css
+**Styles.css**
+```css
 *{
     font-family: "Lucida Sans", Arial, sans-serif;
     color: rgb(79, 79, 79);
-
 }
-
 #review-container{
     display: flex;
     justify-content: center;
-
 }
-
 .card {
     width: 200px;
     height: 290px;
@@ -112,33 +89,24 @@ Styles.css
     transform: scale(0.8, 0.8);
     transition: all 0.3s ease-in-out;
 }
-
 active {
     opacity: 1;
     transform: scale(1, 1);
     transition: all 0.3s ease-in-out;
 }
-
 .card p {
     padding: 0 20px;
-
 }
-
 .card .image-container{
     width: 90px;
     height: 90px;
     border-radius: 45px;
     overflow: hidden;
-
-
 }
-
 .card .image-container img {
     height: 100%;
     margin-left: -25%;
-
 }
-
 .card .name-conteiner{
     position: absolute;
     bottom: 0;
@@ -146,5 +114,5 @@ active {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-
 }
+```
